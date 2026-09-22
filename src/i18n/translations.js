@@ -7,7 +7,7 @@ export const translations = {
     title: {
       start: "PRESS START",
       hint: "WASD / ARROWS · TAP TO EXPLORE",
-      invite: "I invite you to walk through my journey: collect the skill fragments I picked up along the way and reach the end of the path to unlock my resume.",
+      invite: "I invite you to walk through my journey: collect the skills I picked up along the way and reach the end of the path to unlock my resume.",
       badgeEngineering: "YRS ENGINEERING",
       badgeMl: "YRS ML",
       badgeMasters: "M.S. DATA SCIENCE · UTEC '26",
@@ -27,10 +27,10 @@ export const translations = {
     },
     journal: {
       title: (n, total) => `JOURNAL — ${n} / ${total}`,
-      locked: "??? — undiscovered fragment",
+      locked: "??? — undiscovered skill",
     },
     toast: {
-      found: "FRAGMENT FOUND —",
+      found: "SKILL UNLOCKED —",
     },
     obstacle: {
       debug: "DEBUG IT →",
@@ -38,7 +38,7 @@ export const translations = {
     ok: "OK",
     finale: {
       title: "END OF THE ROAD",
-      body: "Six fragments, twelve years, one story. If it made you want to talk, send a message — or grab the resume if you'd rather cut to the chase.",
+      body: "Six skills, twelve years, one story. If it made you want to talk, send a message — or grab the resume if you'd rather cut to the chase.",
       sendMessage: "SEND A MESSAGE",
       downloadCv: "DOWNLOAD CV",
       keepExploring: "keep exploring →",
@@ -90,7 +90,7 @@ export const translations = {
     title: {
       start: "COMENZAR",
       hint: "WASD / FLECHAS · TOCA PARA EXPLORAR",
-      invite: "Te invito a recorrer mi trayectoria: junta los fragmentos de habilidades que fui ganando en el camino y llega al final para desbloquear mi CV.",
+      invite: "Te invito a recorrer mi trayectoria: junta las habilidades que fui ganando en el camino y llega al final para desbloquear mi CV.",
       badgeEngineering: "AÑOS INGENIERÍA",
       badgeMl: "AÑOS ML",
       badgeMasters: "MAESTRÍA DATA SCIENCE · UTEC '26",
@@ -110,10 +110,10 @@ export const translations = {
     },
     journal: {
       title: (n, total) => `DIARIO — ${n} / ${total}`,
-      locked: "??? — fragmento sin descubrir",
+      locked: "??? — habilidad sin descubrir",
     },
     toast: {
-      found: "FRAGMENTO ENCONTRADO —",
+      found: "HABILIDAD DESBLOQUEADA —",
     },
     obstacle: {
       debug: "RESOLVERLO →",
@@ -121,7 +121,7 @@ export const translations = {
     ok: "OK",
     finale: {
       title: "FIN DEL CAMINO",
-      body: "Seis fragmentos, doce años, una sola historia. Si te dieron ganas de conversar, escríbeme — o descarga el CV si prefieres ir directo al grano.",
+      body: "Seis habilidades, doce años, una sola historia. Si te dieron ganas de conversar, escríbeme — o descarga el CV si prefieres ir directo al grano.",
       sendMessage: "ESCRÍBEME",
       downloadCv: "DESCARGAR CV",
       keepExploring: "seguir explorando →",

@@ -16,7 +16,7 @@ export default function FinalePanel({ onOpenContact, onViewResume, onClose }) {
       style={{ background: "rgba(0,0,0,0.7)" }}
       role="dialog"
       aria-modal="true"
-      aria-label="All fragments found"
+      aria-label="All skills found"
     >
       <Celebration />
       <div
