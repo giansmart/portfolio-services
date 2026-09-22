@@ -14,6 +14,12 @@ export default function FragmentToast({ title }) {
         color: "#ffb84d",
         padding: "10px 18px",
         fontSize: 10,
+        // Sits right above the d-pad, same as the HUD — without this, rapid
+        // taps nearby select this text and pop iOS's copy/search callout.
+        userSelect: "none",
+        WebkitUserSelect: "none",
+        WebkitTouchCallout: "none",
+        WebkitTapHighlightColor: "transparent",
       }}
       role="status"
     >
