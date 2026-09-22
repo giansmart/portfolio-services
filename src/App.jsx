@@ -29,7 +29,7 @@ const App = () => {
 
   return (
     <LanguageProvider>
-      {view === "game" && <World onExit={goTitle} />}
+      {view === "game" && <World onExit={goTitle} onViewResume={goResume} />}
       {view === "resume" && <ResumeView onPlay={goGame} />}
       {view === "title" && <TitleScreen onStart={goGame} onViewResume={goResume} />}
     </LanguageProvider>

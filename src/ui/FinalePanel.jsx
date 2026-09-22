@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import { useLanguage } from "../i18n/LanguageContext";
 import Celebration from "./Celebration";
 
-export default function FinalePanel({ onOpenContact, onClose }) {
+export default function FinalePanel({ onOpenContact, onViewResume, onClose }) {
   const { dict } = useLanguage();
   const closeRef = useRef(null);
 
@@ -68,6 +68,27 @@ export default function FinalePanel({ onOpenContact, onClose }) {
         >
           {dict.finale.keepExploring}
         </button>
+
+        {/* Low-key exits for anyone who's done playing — same playful tone
+            as "keep exploring", not competing with the primary CTAs above. */}
+        <div className="flex flex-col items-center" style={{ marginTop: 10, gap: 6 }}>
+          <button
+            onClick={onViewResume}
+            className="mono-font"
+            style={{ fontSize: 12, color: "#5c6a5c", background: "none", border: "none", cursor: "pointer" }}
+          >
+            {dict.finale.viewCv}
+          </button>
+          <a
+            href="https://github.com/giansmart/portfolio-services"
+            target="_blank"
+            rel="noreferrer"
+            className="mono-font"
+            style={{ fontSize: 12, color: "#5c6a5c" }}
+          >
+            {dict.finale.viewSource}
+          </a>
+        </div>
       </div>
     </div>
   );

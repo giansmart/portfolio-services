@@ -42,6 +42,8 @@ export const translations = {
       sendMessage: "SEND A MESSAGE",
       downloadCv: "DOWNLOAD CV",
       keepExploring: "keep exploring →",
+      viewCv: "...or skip straight to the boring version →",
+      viewSource: "nosy? peek at the source code →",
     },
     projects: {
       counter: (n, total) => `PROJECT ${n} / ${total}`,
@@ -123,6 +125,8 @@ export const translations = {
       sendMessage: "ESCRÍBEME",
       downloadCv: "DESCARGAR CV",
       keepExploring: "seguir explorando →",
+      viewCv: "...o salta directo a la versión aburrida →",
+      viewSource: "¿curioso? mira el código fuente →",
     },
     projects: {
       counter: (n, total) => `PROYECTO ${n} / ${total}`,

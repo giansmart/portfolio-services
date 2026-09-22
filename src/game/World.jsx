@@ -102,7 +102,7 @@ function findNearestPerson(center) {
 const SPAWN_CENTER = { x: SPAWN.x + PLAYER_SIZE.w / 2, y: SPAWN.y + PLAYER_SIZE.h / 2 };
 const MUTE_KEY = "gp_portfolio_muted";
 
-export default function World({ onExit }) {
+export default function World({ onExit, onViewResume }) {
   const rootRef = useRef(null);
   const [viewport, setViewport] = useState({ w: window.innerWidth, h: window.innerHeight });
   const posRef = useRef({ ...SPAWN });
@@ -435,6 +435,7 @@ export default function World({ onExit }) {
             setShowFinale(false);
             setOpenZoneId("contact");
           }}
+          onViewResume={onViewResume}
           onClose={() => setShowFinale(false)}
         />
       )}
