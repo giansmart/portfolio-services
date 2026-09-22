@@ -12,6 +12,17 @@ body,
   overscroll-behavior: none;
 }
 
+/* iOS/Android browser chrome (address bar, bottom toolbar) can show or
+   collapse, and 100vh is fixed to the LARGEST case — so a plain 100vh
+   element sits partly behind the toolbar when it's expanded, clipping the
+   HUD/d-pad. 100dvh tracks the actually-visible viewport instead. Kept as a
+   utility (not baked into html/body/#root) since the game root needs it,
+   not every fixed-height element. */
+.full-viewport-height {
+  height: 100vh;
+  height: 100dvh;
+}
+
 .pixel-font {
   font-family: "Press Start 2P", monospace;
 }

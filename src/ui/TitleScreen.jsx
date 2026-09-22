@@ -13,7 +13,7 @@ export default function TitleScreen({ onStart, onViewResume }) {
   const { role } = pickLang(profile, lang);
 
   return (
-    <div className="relative w-screen h-screen flex items-center justify-center overflow-hidden" style={{ background: "#0b0e1a" }}>
+    <div className="relative w-screen full-viewport-height flex items-center justify-center overflow-hidden" style={{ background: "#0b0e1a" }}>
       <div
         className="absolute inset-0"
         style={{

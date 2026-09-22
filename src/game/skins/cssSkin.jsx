@@ -649,9 +649,14 @@ export function PersonMarker({ x, y, active, firstName, country, color, facingLe
 // In-world speech bubble — anchored well above the NPC's (and cat's) heads
 // via translateY(-100%) from a high offset, so it never overlaps either
 // character; grows upward as the quote gets longer.
-export function DialogueBubble({ x, y, name, company, country, quote, accent, linkedin }) {
+export function DialogueBubble({ x, y, name, company, country, quote, accent, linkedin, boxLeft, width = 320, tailLeft }) {
+  // boxLeft/tailLeft let the caller clamp the bubble to stay on-screen (see
+  // World.jsx) — narrow viewports otherwise clip it since it's centered on
+  // the NPC in world space, not the visible camera window.
+  const left = boxLeft ?? x - width / 2;
+  const tail = tailLeft ?? width / 2;
   return (
-    <div className="absolute" style={{ left: x - 160, top: y - 120, width: 320, zIndex: 5 }}>
+    <div className="absolute" style={{ left, top: y - 120, width, zIndex: 5 }}>
       <div style={{ position: "relative", transform: "translateY(-100%)" }}>
         <div
           style={{
@@ -684,7 +689,7 @@ export function DialogueBubble({ x, y, name, company, country, quote, accent, li
           <div
             style={{
               position: "absolute",
-              left: "50%",
+              left: tail,
               bottom: -14,
               transform: "translateX(-50%)",
               width: 0,
@@ -697,7 +702,7 @@ export function DialogueBubble({ x, y, name, company, country, quote, accent, li
           <div
             style={{
               position: "absolute",
-              left: "50%",
+              left: tail,
               bottom: -9,
               transform: "translateX(-50%)",
               width: 0,

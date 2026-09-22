@@ -4,6 +4,16 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/logo.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <!-- Lets the site run without Safari/Chrome browser chrome once added to
+         the home screen — the only way to get a real fullscreen game on
+         mobile, since no website can hide the browser UI on its own. -->
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta name="theme-color" content="#0b0e1a" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Giposmart" />
     <meta property="og:title" content="Giancarlo's Portfolio" />
     <meta property="og:url" content="https://giposmart.com" />
     <meta property="og:image" content="https://giposmart-external-assets.s3.us-west-2.amazonaws.com/giposmart-preview-min.png" />

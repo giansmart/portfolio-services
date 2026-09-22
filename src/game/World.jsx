@@ -42,6 +42,23 @@ function clampCam(v, worldSize, viewportSize) {
   return Math.min(Math.max(v, 0), max);
 }
 
+const BUBBLE_MARGIN = 12;
+const BUBBLE_MAX_WIDTH = 320;
+
+// A dialogue bubble is centered on the NPC in world space, but the camera
+// can be clamped near a world edge so the NPC isn't centered on screen —
+// on a narrow phone viewport that pushes the fixed-width bubble past the
+// edge. Recompute its box/tail position in screen space instead so it
+// always stays fully visible, sliding the tail to keep pointing at the NPC.
+function clampedBubbleGeometry(anchorX, camX, viewportW) {
+  const width = Math.min(BUBBLE_MAX_WIDTH, Math.max(160, viewportW - BUBBLE_MARGIN * 2));
+  const naturalScreenLeft = anchorX - width / 2 - camX;
+  const maxScreenLeft = Math.max(BUBBLE_MARGIN, viewportW - width - BUBBLE_MARGIN);
+  const screenLeft = Math.min(Math.max(naturalScreenLeft, BUBBLE_MARGIN), maxScreenLeft);
+  const tailLeft = Math.min(Math.max(anchorX - camX - screenLeft, 20), width - 20);
+  return { boxLeft: screenLeft + camX, width, tailLeft };
+}
+
 function findNearestZone(center) {
   let closest = null;
   let closestDist = Infinity;
@@ -311,7 +328,7 @@ export default function World({ onExit }) {
   const catVariant = nearObstacleId ? (resolvedObstacles.has(nearObstacleId) ? "happy" : "sad") : nearZoneId || "walk";
 
   return (
-    <div ref={rootRef} className="relative w-screen h-screen overflow-hidden" style={{ background: "#152a1c" }}>
+    <div ref={rootRef} className="relative w-screen full-viewport-height overflow-hidden" style={{ background: "#152a1c" }}>
       <div
         className="absolute top-0 left-0"
         style={{
@@ -362,18 +379,25 @@ export default function World({ onExit }) {
                 facingLeft={facingLeft}
                 gender={person.gender}
               />
-              {isNear && (
-                <DialogueBubble
-                  x={spot.x}
-                  y={spot.y}
-                  name={person.firstName}
-                  company={person.company}
-                  country={person.country}
-                  quote={person.quote}
-                  accent={color}
-                  linkedin={person.linkedin}
-                />
-              )}
+              {isNear &&
+                (() => {
+                  const { boxLeft, width, tailLeft } = clampedBubbleGeometry(spot.x, camX, viewport.w);
+                  return (
+                    <DialogueBubble
+                      x={spot.x}
+                      y={spot.y}
+                      boxLeft={boxLeft}
+                      width={width}
+                      tailLeft={tailLeft}
+                      name={person.firstName}
+                      company={person.company}
+                      country={person.country}
+                      quote={person.quote}
+                      accent={color}
+                      linkedin={person.linkedin}
+                    />
+                  );
+                })()}
             </Fragment>
           );
         })}
